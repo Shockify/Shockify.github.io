@@ -6,13 +6,24 @@
             box-sizing:border-box
         }
         body {
-            overflow:hidden;
+         
             color: #ffc467;
             background: #2e3841;
             font-family: sans-serif;
         }
     p:last-child {
         margin-bottom: 0;
+    }
+    html {
+        overflow: scroll;
+        overflow-x:hidden;
+    }
+    ::-webkit-scrollbar {
+        width: 0px;
+        background:transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #FF0000;
     }
     ul {
         list-style: none;
