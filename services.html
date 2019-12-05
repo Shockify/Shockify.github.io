@@ -3,6 +3,16 @@
   
   <head>
   <style>
+    .snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+}
+
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
+
+
    .btn {
   background-color: #f4511e;
   border: none;
@@ -14,7 +24,129 @@
   opacity: 1;
   transition: 0.3s;
 }
+.containers {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.bottom-left {
+  position: absolute;
+  bottom: 40px;
+  left:40px;
+  background-color: #ed1c24;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right:20px;
+  padding-left:20px;
+  margin:0;
+  letter-spacing: .12px;
+  font-weight: 700;
+  font-size:12px;
+}
+.bottom-title {
+  position: absolute;
+  bottom: 60px;
+  
+ 
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right:20px;
+  padding-left:20px;
+  margin:15px;
+  text-transform: uppercase;
+  letter-spacing: .2px;
+  font-weight: 700;
+  font-size:12px;
+}
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.btn2 {
+  border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+
+    padding: 15px 26px;
+    margin: 0 13px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .15px;
+    max-width: calc(80vw - 26px);
+    cursor: pointer;
+  text-align: center;
+ 
+  transition: 0.3s;
+
+}
+
+.btn2:hover {
+  background-color: #ffffff;
+ 
+  color: white;
+}
 .btn:hover {opacity: 0.6}
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
     </style>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -64,6 +196,44 @@
     </head>
     <body> 
  
+<div class="snowflakes" aria-hidden="true">
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+      ❅
+    </div>
+    <div class="snowflake">
+      ❆
+    </div>
+    <div class="snowflake">
+      ❅
+    </div>
+    <div class="snowflake">
+      ❆
+    </div>
+    <div class="snowflake">
+      ❅
+    </div>
+    <div class="snowflake">
+      ❆
+    </div>
+  </div>
 
       
      
@@ -74,7 +244,7 @@
               </div>
               <div class="container mt-3">
                   <div class="row justify-content-left"></div>
-                  <h1 style="font-size:50px;">Stay Posted</h1>
+                  <h1 style="font-size:50px;">Developor's Post</h1>
                   
                   </div>
 
@@ -87,27 +257,136 @@
           </div>
       </div> -->
 
-      <div class="container mt-10">
-      <div  class="justify-content-center"> 
-          <a style="display: inline-block !important;" href="https:/google.com">
-            <img class="btn" style="max-width:600px;" src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2019/04/1556692135visualstudio.jpg" draggable="false">
+
+
+
+
+
+    
+          <div class="row justify-content-center">
+<div style="display: inline-block;"> <!--START NEW POST-->
+
+     <div class="containers shadow-lg">
+        <a  href="/news/update12419">
+    <img class="btn" style="max-width:600px;" src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2019/04/1556692135visualstudio.jpg" draggable="false">
+   
+        <div class="bottom-left">
+            <span style="color:white;">READ MORE</span>
+      
+        </div>
+        <div class="bottom-title" style="padding-bottom: 20px; margin-left: 20px;">
+           
+            <span style="color:white; font-size:20px; font-weight:700;">Creation of the Website</span>
+        </div>
+        <div class="bottom-right" style="padding-bottom: 20px; padding-right: 20px;">
+           
+            <span style="color:white; font-size:12px; font-weight:400;">12 December, 2019</span>
+        </div>
+      </a>
+    </div>
+  
+  </div> <!--STOP NEW POST -->
+  <div style="display: inline-block;"> <!--START NEW POST-->
+
+    <div class="containers shadow-lg">
+       <a  href="/news/update12419">
+   <img class="btn" style="max-width:600px; height:373px;" src="https://pluralsight.imgix.net/course-images/modeling-assault-rifle-blender-2333-v1.jpg" draggable="false">
+  
+       <div class="bottom-left">
+           <span style="color:white;">READ MORE</span>
+     
+       </div>
+       <div class="bottom-title" style="padding-bottom: 20px; margin-left: 20px;">
           
-          </a>
-          <a style="display: inline-block !important;" href="/news/update12419">
-            <img class="btn" style="max-width:600px;" src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2019/04/1556692135visualstudio.jpg" draggable="false">
+           <span style="color:white; font-size:20px; font-weight:700;">Modeling using Sketchup And Blender</span>
+       </div>
+       <div class="bottom-right" style="padding-bottom: 20px; padding-right: 20px;">
           
+           <span style="color:white; font-size:12px; font-weight:400;">12 December, 2019</span>
+       </div>
+     </a>
+   </div>
+ 
+ </div> <!--STOP NEW POST -->
+
+ 
+  </div>
+     
+
+
+
+<br>
+<br>
+<br>
+
+<div class="row justify-content-center">
+    <div style="display: inline-block;"> <!--START NEW POST-->
+    
+         <div class="containers shadow-lg">
+            <a  href="/news/update12419">
+        <img class="btn" style="max-width:600px; height:373px;" src="https://cdn2.unrealengine.com/UnrealTournamentBlog/may_2016/may24_2016/underland3-1920x1050-529188650.jpg" draggable="false">
+       
+            <div class="bottom-left">
+                <span style="color:white;">READ MORE</span>
+          
+            </div>
+            <div class="bottom-title" style="padding-bottom: 20px; margin-left: 20px;">
+               
+                <span style="color:white; font-size:20px; font-weight:700;">Shelter Map Creation</span>
+            </div>
+            <div class="bottom-right" style="padding-bottom: 20px; padding-right: 20px;">
+               
+                <span style="color:white; font-size:12px; font-weight:400;">12 December, 2019</span>
+            </div>
           </a>
+        </div>
+      
+      </div> <!--STOP NEW POST -->
+      <div style="display: inline-block;"> <!--START NEW POST-->
+    
+        <div class="containers shadow-lg">
+           <a  href="/news/update12419">
+       <img class="btn" style="max-width:600px; height:373px;" src="https://evermotion.org/files/publications_images/cover_1_5.jpg" draggable="false">
+      
+           <div class="bottom-left">
+               <span style="color:white;">READ MORE</span>
+         
+           </div>
+           <div class="bottom-title" style="padding-bottom: 20px; margin-left: 20px;">
               
-              </div>
-</div>
+               <span style="color:white; font-size:20px; font-weight:700;">texturing models and assets</span>
+           </div>
+           <div class="bottom-right" style="padding-bottom: 20px; padding-right: 20px;">
+              
+               <span style="color:white; font-size:12px; font-weight:400;">12 December, 2019</span>
+           </div>
+         </a>
+       </div>
+     
+     </div> <!--STOP NEW POST -->
+    
+     
+      </div>
 
-
-
+      <br>
+      <br>
+      <div class="row justify-content-center">
+    
+          
+               <div class="popup btn containers shadow-lg" onclick="myFunction()">
+                    MORE POSTS
+                    <span class="popuptext" id="myPopup">There are no post to display</span>
+                 </div>
+                 </div>
+                 <br>
 </body>
 
 
 <script>
-
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
   
 document.getElementById("mydiv").hover = function() 
 {
